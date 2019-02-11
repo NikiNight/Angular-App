@@ -1,0 +1,40 @@
+<div class="news-edit">
+  <form action method="post" class="news-edit__form">
+    <div class="news-edit__column">
+      <div class="news-edit__line">
+        <label for="title">Heading</label>
+        <input type="text" id="title">
+      </div>
+      <div class="news-edit__line">
+        <label for="short-description">Short Description</label>
+        <input type="text" id="short-description">
+      </div>
+      <div class="news-edit__line">
+        <label for="content">Content</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+      </div>
+    </div>
+    <div class="news-edit__column">
+        <div class="news-edit__line">
+          <label for="image-url">Image</label>
+          <input type="text" id="image-url">
+        </div>
+        <div class="news-edit__line">
+          <label for="date">Date</label>
+          <input type="text" id="date">
+        </div>
+        <div class="news-edit__line">
+          <label for="author">Author</label>
+          <input type="text" id="author">
+        </div>
+        <div class="news-edit__line">
+          <label for="source-url">Source URL</label>
+          <input type="text" id="source-url">
+        </div>
+        <div class="news-edit__line news-edit__line_buttons">
+          <button class="button" (click)="save($event)">Save</button>
+          <button class="button" (click)="cancel($event)">Cancel</button>
+        </div>
+    </div>
+  </form>
+</div>

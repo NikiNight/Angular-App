@@ -1,0 +1,4 @@
+<select name="select-source" id="select-source" (change)="changeSource()">
+  <option value="All sources">All sources</option>
+  <option *ngFor="let source of sourcesList" [value]="source.source">{{source.source}}</option>
+</select>

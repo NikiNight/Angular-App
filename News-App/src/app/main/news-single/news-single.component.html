@@ -1,0 +1,13 @@
+<article class="news news_single">
+  <img [src]="news.img" alt="" class='news__img'>
+  <div class="news__body">
+    <h2 class="news__title">{{news.title}}</h2>
+    <p class="news__date">{{news.date}}</p>
+    <div class="news__text">{{news.fulltext}}</div>
+    <p class="news__author">{{news.author}}</p>
+  </div>
+  <div class="news__edit">
+    <a class="button" href="/edit">Edit</a>
+    <button class="button" (click)="delete()">Delete</button>
+  </div>
+</article>

@@ -1,0 +1,39 @@
+@import "../../../scss/variables";
+
+.news-edit {
+    margin: 50px auto;
+    max-width: 700px;
+    border: 1px solid $color-grey;
+    display: flex;
+    padding: 15px;
+}
+
+.news-edit__form {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.news-edit__column {
+    width: 45%;
+}
+
+.news-edit__line {
+    margin-bottom: 20px;
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: $semibold;
+    }
+    input[type="text"], 
+    textarea {
+        width: 100%;
+    }
+    &_buttons {
+        display: flex;
+        justify-content: flex-end;
+        .button {
+            margin-left: 15px;
+        }
+    }
+}

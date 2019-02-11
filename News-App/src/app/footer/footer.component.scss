@@ -1,0 +1,13 @@
+@import "../../scss/variables";
+
+.footer {
+    background-color: $color-dark;
+    color: $color-light;
+    padding: 10px 0;
+    font-size: 1.4rem;
+}
+
+.footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+}

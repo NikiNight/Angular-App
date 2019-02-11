@@ -1,0 +1,44 @@
+@import "../../../../scss/variables";
+
+.news {
+    border: 1px solid $color-grey;
+    display: flex;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.news__img {
+    max-width: 150px;
+    height: 100px;
+}
+
+.news__date {
+    font-size: 1.3rem;
+    color: $color-grey;
+}
+
+.news__show-more {
+    display: block;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    font-weight: $semibold;
+    color: $color-accent;
+    cursor: pointer;
+}
+
+.news__body {
+    flex-grow: 1;
+    padding: 0 15px;
+}
+
+.news__edit {
+    display: flex;
+    flex-direction: column;
+    .button {
+        margin-bottom: 15px;
+    }
+}
+
+.news-list__more {
+    text-align: center;
+}

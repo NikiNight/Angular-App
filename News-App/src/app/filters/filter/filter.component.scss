@@ -1,0 +1,7 @@
+@import "../../../scss/variables";
+@import "../../../scss/button";
+
+.filter__button {
+    @include button($color-dark);
+    vertical-align: middle;
+}

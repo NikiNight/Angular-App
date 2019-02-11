@@ -1,0 +1,12 @@
+@import "../../../scss/variables";
+
+.filters__created-input {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.filters__created-label {
+    font-size: 1.4rem;
+    font-weight: $semibold;
+    cursor: pointer;
+}

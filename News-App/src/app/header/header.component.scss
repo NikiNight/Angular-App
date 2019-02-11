@@ -1,0 +1,32 @@
+@import "../../scss/variables";
+
+.header {
+    background-color: $color-dark;
+    color: $color-light;
+    padding-top: 15px;
+}
+
+.header .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo {
+    img {
+        width: 200px;
+    }
+}
+
+.header-login {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.header-login__button {
+    margin-left: 15px;
+}
+
+.header-login__name {
+    font-weight: $semibold;
+}

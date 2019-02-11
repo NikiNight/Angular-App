@@ -1,0 +1,12 @@
+@import "../../scss/variables";
+
+.filters {
+    background-color: $color-accent;
+}
+
+.filters .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}

@@ -1,0 +1,10 @@
+input[type="text"],
+select,
+textarea {
+    padding: 8px 16px;
+    font-size: 1.3rem;
+    border: 1px solid $color-grey;
+    outline: none;
+    width: 250px;
+    resize: none;
+}

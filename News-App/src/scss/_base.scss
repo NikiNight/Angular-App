@@ -1,0 +1,22 @@
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    color: $color-dark;
+}
+
+.wrapper {
+    max-width: 1176px;
+    margin: auto;
+}
+
+h1 {
+    margin: 0;
+    color: $color-light;
+    padding: 20px 0 40px 0;
+    font-size: 7rem;
+    font-weight: $thin;
+}
