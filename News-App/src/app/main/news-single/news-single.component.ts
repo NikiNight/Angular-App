@@ -1,23 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NewsServiceService } from 'src/app/news-service.service';
+import { Article } from 'src/app/article';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-single',
   templateUrl: './news-single.component.html',
-  styleUrls: ['./news-single.component.scss']
+  styleUrls: ['./news-single.component.scss'],
 })
+
 export class NewsSingleComponent implements OnInit {
 
-  public news: Object = {
-    title: 'Earum ipsam fugiat ipsum mollitia iure tempora eum.',
-    date: 'Tue Aug 07 2018 12:10:03 GMT+0300 (Belarus Standard Time)',
-    fulltext: 'Non quos consequuntur a ut nemo. Pariatur qui quasi iure et cupiditate iusto ipsam dicta dolores. Ex eum voluptatem dolorem. Animi eveniet unde hic adipisci quia sit odio. Qui sit dolore aspernatur minus. Voluptatibus qui ducimus sed aut architecto facilis id ipsum iusto.',
-    img: 'http://lorempixel.com/640/480/business',
-    author: 'Jaclyn Collins'
-  };
+  public singleNews: Article;
 
-  constructor() { }
+  constructor(
+    private newsService: NewsServiceService,
+    private router: Router,
+    private cdr: ChangeDetectorRef,
+  ) { }
 
   ngOnInit() {
+    this.singleNews = this.newsService.getSingleNews();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.newsService.updatedTitle.emit(this.singleNews.title);
+    }, 0);
+  }
+
+  delete(news: Article) {
+    this.newsService.deleteLocalNews(news.id).subscribe((response: any) => {
+      news.isDeleted = true;
+      this.cdr.detectChanges();
+    })
+  }
+
+  edit(news: Article) {
+    this.newsService.setSingleNews(news);
+    this.router.navigate([{ outlets: { filtersOutlet: null } }])
+              .then(() => this.router.navigate([`/edit`]));
   }
 
 }

@@ -1,4 +1,4 @@
-<select name="select-source" id="select-source" (change)="changeSource()">
-  <option value="All sources">All sources</option>
-  <option *ngFor="let source of sourcesList" [value]="source.source">{{source.source}}</option>
+<select name="select-source" id="select-source" (change)="changeSource($event.target)" [disabled]="this.isLocalState">
+  <option data-name="Hot News" value="allsources">All sources</option>
+  <option *ngFor="let source of sourcesList" [value]="source.id" [attr.data-name]="source.name">{{source.name}}</option>
 </select>

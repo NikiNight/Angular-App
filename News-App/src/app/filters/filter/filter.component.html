@@ -1,4 +1,4 @@
 <div class="filters__filter filter">
-  <input type="text" class="filter__input" placeholder="Type your text...">
-  <button class="button filter__button" (click)="filter()">Filter</button>
+  <input type="text" class="filter__input" id="filter__input" placeholder="Type your text..." [disabled]="this.isLocalState">
+  <button class="button filter__button" (click)="filter($event.target)" [disabled]="this.isLocalState">Filter</button>
 </div>

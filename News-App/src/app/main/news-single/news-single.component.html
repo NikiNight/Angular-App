@@ -1,13 +1,20 @@
-<article class="news news_single">
-  <img [src]="news.img" alt="" class='news__img'>
+<article class="news news_single" *ngIf="singleNews else elseBlock">
+  <img [src]="singleNews.urlToImage" alt="" class='news__img' *ngIf="singleNews.urlToImage">
   <div class="news__body">
-    <h2 class="news__title">{{news.title}}</h2>
-    <p class="news__date">{{news.date}}</p>
-    <div class="news__text">{{news.fulltext}}</div>
-    <p class="news__author">{{news.author}}</p>
+    <h2 class="news__title">{{singleNews.title}}</h2>
+    <p class="news__date">{{singleNews.publishedAt | date:'MMMM d, y, h:mm:ss a'}}</p>
+    <div class="news__text">{{singleNews.content}}</div>
+    <p class="news__author">{{singleNews.author}}</p>
   </div>
-  <div class="news__edit">
-    <a class="button" href="/edit">Edit</a>
-    <button class="button" (click)="delete()">Delete</button>
+  <div class="news__edit" *ngIf="singleNews.isLocal">
+    <button class="button" (click)="edit(singleNews)" *ngIf="!singleNews.isDeleted">Edit</button>
+    <button class="button" (click)="delete(singleNews)" *ngIf="!singleNews.isDeleted">Delete</button>
+    <button class="button" *ngIf="singleNews.isDeleted" disabled>News Was Deleted</button>
   </div>
 </article>
+<ng-template #elseBlock>
+  <div class="centered">
+      <h2>Please, choose the article at the main page.</h2>
+      <a href="/" class="button">Go to the main page</a>
+  </div>
+</ng-template>

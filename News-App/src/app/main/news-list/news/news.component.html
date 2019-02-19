@@ -1,14 +1,15 @@
 <article *ngFor="let news of newsList" class="news">
-  <img [src]="news.img" alt="" class='news__img'>
+  <img [src]="news.urlToImage" alt="" class='news__img' *ngIf="news.urlToImage">
   <div class="news__body">
     <h2 class="news__title">{{news.title}}</h2>
-    <p class="news__date">{{news.date}}</p>
-    <div class="news__text">{{news.text}}</div>
-    <a href="/single-news" class="news__show-more">Read More ></a>
+    <p class="news__date">{{news.publishedAt | date:'MMMM d, y, h:mm:ss a'}}</p>
+    <div class="news__text">{{news.description}}</div>
+    <button class='news__show-more' (click)="redirectSingleNews(news)">Read More...</button>
   </div>
-  <div class="news__edit">
-    <a class="button" href="/edit">Edit</a>
-    <button class="button" (click)="delete()">Delete</button>
+  <div class="news__edit" *ngIf="news.isLocal">
+    <button class="button" (click)="edit(news)" *ngIf="!news.isDeleted">Edit</button>
+    <button class="button" (click)="delete(news)" *ngIf="!news.isDeleted">Delete</button>
+    <button class="button" *ngIf="news.isDeleted" disabled>News Was Deleted</button>
   </div>
 </article>
 <div class="news-list__more">

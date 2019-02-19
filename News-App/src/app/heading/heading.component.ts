@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewsServiceService } from 'src/app/news-service.service';
 
 @Component({
   selector: 'app-heading',
@@ -9,9 +10,12 @@ export class HeadingComponent implements OnInit {
 
   public heading : string = "Hot News";
 
-  constructor() { }
+  constructor(private newsService: NewsServiceService) { }
 
   ngOnInit() {
+    this.newsService.updatedTitle.subscribe((status: string)=>{
+      this.heading = status;
+    })
   }
 
 }
