@@ -13,13 +13,15 @@ export class NewsListComponent implements OnInit {
   public newsList: Article[];
 
   constructor(
-    private newsService: NewsServiceService,
+    public newsService: NewsServiceService,
     private router: Router,
   ) { }
 
   public getNews(newsNumber: number) {
     this.newsService.getNewsList(newsNumber).subscribe((data: Article[]) => {
       this.newsList = data;
+    }, (err) => {
+      console.log(err);
     });
   }
 
@@ -30,11 +32,15 @@ export class NewsListComponent implements OnInit {
     this.newsService.sorcedNewsList.subscribe((sourceId: any)=>{
       this.newsService.sourceId = sourceId;
       this.getNews(null);
+    }, (err) => {
+      console.log(err);
     })
     //Get News from API when filter is click
     this.newsService.filteredNewsList.subscribe((keyWords: any)=>{
       this.newsService.keyWords = keyWords;
       this.getNews(null);
+    }, (err) => {
+      console.log(err);
     })
     //Get News From API or Local server when local checkbox is changed
     this.newsService.isLocalState.subscribe((isLocalState: boolean)=>{
@@ -43,6 +49,8 @@ export class NewsListComponent implements OnInit {
       if (isLocalState) {
         this.newsService.getLocalNewsList().subscribe((data: Article[]) => {
           this.newsList = data;
+        }, (err) => {
+          console.log(err);
         });
       } else {
         this.getNews(null);
@@ -56,10 +64,6 @@ export class NewsListComponent implements OnInit {
     setTimeout(() => {
       this.newsService.updatedTitle.emit('Hot News');
     }, 0);
-  }
-
-  delete() {
-    console.log('Delete news');
   }
 
   loadMoreNews() {

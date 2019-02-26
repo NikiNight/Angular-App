@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { HeadingComponent } from './heading.component';
+import { HttpHandler, HttpClient } from '@angular/common/http';
 
 describe('HeadingComponent', () => {
   let component: HeadingComponent;
@@ -8,7 +8,11 @@ describe('HeadingComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeadingComponent ]
+      declarations: [ HeadingComponent ],
+      providers: [
+        HttpClient,
+        HttpHandler
+      ]
     })
     .compileComponents();
   }));

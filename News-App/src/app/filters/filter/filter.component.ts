@@ -20,7 +20,6 @@ export class FilterComponent implements OnInit {
   }
 
   filter(item) {
-    console.log('start filter');
     let filterValue = item.parentNode.querySelector('#filter__input').value;
     if(filterValue=='') {
       filterValue=null;

@@ -10,3 +10,4 @@ export class Article {
     isDeleted: boolean=false;
     sourceUrl: string;
 }
+ 

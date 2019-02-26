@@ -8,7 +8,7 @@ import { NewsServiceService } from 'src/app/news-service.service';
 })
 export class CreatedComponent implements OnInit {
 
-  constructor(private newsService: NewsServiceService) { }
+  constructor(public newsService: NewsServiceService) { }
 
   ngOnInit() {
   }

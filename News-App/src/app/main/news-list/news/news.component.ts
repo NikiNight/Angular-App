@@ -21,7 +21,7 @@ export class NewsComponent implements OnInit {
   }
 
   constructor(
-    private newsService: NewsServiceService,
+    public newsService: NewsServiceService,
     private router: Router,
     private cdr: ChangeDetectorRef,
   ){}
@@ -40,6 +40,8 @@ export class NewsComponent implements OnInit {
     this.newsService.deleteLocalNews(news.id).subscribe((response: any) => {
       news.isDeleted = true;
       this.cdr.detectChanges();
+    }, (err) => {
+      console.log(err);
     })
   }
 

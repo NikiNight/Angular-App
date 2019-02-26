@@ -1,6 +1,11 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { HeadingComponent } from './heading/heading.component';
+import { MainComponent } from './main/main.component';
+import { FooterComponent } from './footer/footer.component';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -9,8 +14,16 @@ describe('AppComponent', () => {
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        HeaderComponent,
+        HeadingComponent,
+        MainComponent,
+        FooterComponent
       ],
+      providers: [
+        HttpClient,
+        HttpHandler
+      ]
     }).compileComponents();
   }));
 
@@ -30,6 +43,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to News-App!');
+    expect(compiled.querySelector('h1').textContent).toContain('Hot News');
   });
 });

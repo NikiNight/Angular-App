@@ -5,7 +5,7 @@ import { NewsEditComponent } from './main/news-edit/news-edit.component';
 import { NewsSingleComponent } from './main/news-single/news-single.component';
 import { FiltersComponent } from './filters/filters.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {path: '', component: NewsListComponent},
   {path: 'edit', component: NewsEditComponent},
   {path: 'create', component: NewsEditComponent},
@@ -17,4 +17,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }
